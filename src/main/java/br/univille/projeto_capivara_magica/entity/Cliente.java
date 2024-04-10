@@ -1,6 +1,5 @@
 package br.univille.projeto_capivara_magica.entity;
 
-import java.security.Timestamp;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;

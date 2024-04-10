@@ -1,11 +1,11 @@
-services:
-    db: 
-      container_name: springboot_db
-      image: mysql
-      restart: unless-stopped
-      environment: 
-        MYSQL_ROOT_PASSWORD: root_Teste2024@
-      ports:
-        - "8080:3306"
+# services:
+#     db: 
+#       container_name: springboot_db
+#       image: mysql
+#       restart: unless-stopped
+#       environment: 
+#         MYSQL_ROOT_PASSWORD: root_Teste2024@
+#       ports:
+#         - "8080:3306"
       
     

@@ -1,7 +1,5 @@
 package br.univille.projeto_capivara_magica.controller;
 
-import java.security.Timestamp;
-import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.RequestMapping;
