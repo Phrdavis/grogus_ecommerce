@@ -22,6 +22,12 @@ public class UsuarioService {
 
     }
 
+    public List<Usuario> getIssoAi(){
+
+        return usuarioRepository.findAllByIssoAi();
+
+    }
+
     public void addUsuario(Usuario usuario){
 
         usuarioRepository.save(usuario);
