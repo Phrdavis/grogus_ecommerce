@@ -1,6 +1,9 @@
 package br.univille.projeto_capivara_magica.controller;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,9 +21,10 @@ public class FornecedorController {
         this.fornecedorService = fornecedorService;
     }
 
-    public void getFornecedores(){
+    @GetMapping
+    public List<Fornecedor> getFornecedores(){
 
-        fornecedorService.getFornecedores();
+        return fornecedorService.getFornecedores();
 
     }
 
@@ -32,7 +36,7 @@ public class FornecedorController {
         String cnpj
     ){};
 
-    @GetMapping
+    @PostMapping
     public void addFornecedor(@RequestBody NewFornecedor newFornecedor){
 
         Fornecedor fornecedor = new Fornecedor();

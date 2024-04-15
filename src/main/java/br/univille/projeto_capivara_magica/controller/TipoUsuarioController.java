@@ -1,5 +1,7 @@
 package br.univille.projeto_capivara_magica.controller;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,7 +13,7 @@ import br.univille.projeto_capivara_magica.service.TipoUsuarioService;
 
 @RestController
 @RequestMapping("api/v1/tipos_usuario")
-public class TipoUsuarioController {
+public class TipoUsuarioController { 
 
     private TipoUsuarioService tipoUsuarioService;
 
@@ -20,9 +22,9 @@ public class TipoUsuarioController {
     }
 
     @GetMapping
-    public void getTiposUsuario() {
+    public List<Tipo_Usuario> getTiposUsuario() {
 
-        tipoUsuarioService.getTiposUsuario();
+        return tipoUsuarioService.getTiposUsuario();
 
     }
 

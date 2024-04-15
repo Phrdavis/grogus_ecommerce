@@ -1,6 +1,7 @@
 package br.univille.projeto_capivara_magica.controller;
 
-import org.springframework.stereotype.Controller;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,9 +22,9 @@ public class CategoriaProdutoController {
     }
 
     @GetMapping
-    public void getCategoriasProduto(){
+    public List<Categoria_Produto> getCategoriasProduto(){
 
-        categoriaProdutoService.getCategoriasProduto();
+        return categoriaProdutoService.getCategoriasProduto();
 
     }
 

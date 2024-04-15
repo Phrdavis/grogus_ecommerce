@@ -1,5 +1,7 @@
 package br.univille.projeto_capivara_magica.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import br.univille.projeto_capivara_magica.entity.Tipo_Usuario;
@@ -14,9 +16,9 @@ public class TipoUsuarioService {
         this.tipoUsuarioRepository = tipoUsuarioRepository;
     }
 
-    public void getTiposUsuario(){
+    public List<Tipo_Usuario> getTiposUsuario(){
 
-        tipoUsuarioRepository.findAll();
+        return tipoUsuarioRepository.findAll();
 
     }
 

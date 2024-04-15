@@ -1,5 +1,7 @@
 package br.univille.projeto_capivara_magica.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import br.univille.projeto_capivara_magica.entity.Categoria_Produto;
@@ -14,9 +16,9 @@ public class CategoriaProdutoService {
         this.categoriaProdutoRepository = categoriaProdutoRepository;
     }
 
-    public void getCategoriasProduto(){
+    public List<Categoria_Produto> getCategoriasProduto(){
 
-        categoriaProdutoRepository.findAll();
+        return categoriaProdutoRepository.findAll();
 
     }
 

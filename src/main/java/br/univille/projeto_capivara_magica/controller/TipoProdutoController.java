@@ -1,5 +1,7 @@
 package br.univille.projeto_capivara_magica.controller;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,9 +22,9 @@ public class TipoProdutoController {
     }
 
     @GetMapping
-    public void getTiposProduto(){
+    public List<Tipo_Produto> getTiposProduto(){
 
-        tipoProdutoService.getTiposProduto();
+        return tipoProdutoService.getTiposProduto();
 
     }
 

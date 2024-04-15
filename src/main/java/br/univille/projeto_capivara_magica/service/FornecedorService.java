@@ -1,5 +1,7 @@
 package br.univille.projeto_capivara_magica.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import br.univille.projeto_capivara_magica.entity.Fornecedor;
@@ -14,9 +16,9 @@ public class FornecedorService {
         this.fornecedorRepository = fornecedorRepository;
     }
 
-    public void getFornecedores(){
+    public List<Fornecedor> getFornecedores(){
 
-        fornecedorRepository.findAll();
+        return fornecedorRepository.findAll();
 
     }
 
