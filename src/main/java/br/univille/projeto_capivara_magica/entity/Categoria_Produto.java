@@ -17,6 +17,9 @@ public class Categoria_Produto {
         this.nome = nome;
     }
 
+    public Categoria_Produto() {
+    }
+
     public long getId() {
         return id;
     }

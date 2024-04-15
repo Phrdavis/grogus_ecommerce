@@ -28,6 +28,9 @@ public class Fornecedor {
         this.cnpj = cnpj;
     }
 
+    public Fornecedor() {
+    }
+
     public long getId() {
         return id;
     }

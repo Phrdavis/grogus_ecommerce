@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import br.univille.projeto_capivara_magica.entity.Usuario;
-import br.univille.projeto_capivara_magica.entity.TipoUsuario;
+import br.univille.projeto_capivara_magica.entity.Tipo_Usuario;
 import br.univille.projeto_capivara_magica.service.UsuarioService;
 
 
@@ -38,7 +38,7 @@ public class UsuarioController {
         String telefone,
         String senha,
         boolean ativo,
-        TipoUsuario tipo
+        Tipo_Usuario tipo
     ){};
 
 

@@ -17,6 +17,9 @@ public class Tipo_Produto {
         this.nome = nome;
     }
 
+    public Tipo_Produto() {
+    }
+
     public long getId() {
         return id;
     }

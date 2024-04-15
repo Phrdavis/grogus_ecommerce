@@ -6,12 +6,20 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class TipoUsuario {
+public class Tipo_Usuario {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String nome;
+
+    public Tipo_Usuario(String nome) {
+        this.nome = nome;
+    }
+
+    public Tipo_Usuario() {
+    }
+
 
     public long getId() {
         return id;
