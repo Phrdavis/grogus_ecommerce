@@ -12,11 +12,12 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.PrePersist;
 
 @Entity
-public class Cliente {
+public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     private String nome;
     private int idade;
     private String cpf;
@@ -27,11 +28,25 @@ public class Cliente {
     @Column(columnDefinition = "BOOLEAN DEFAULT 1")
     private Boolean ativo;
 
-    @ManyToOne(targetEntity = TipoUsuario.class)
+    @ManyToOne(targetEntity = Tipo_Usuario.class)
     @JoinColumn(name="tipo_id")
-    private TipoUsuario tipo;
+    private Tipo_Usuario tipo;
 
     private LocalDateTime registro;
+
+    public Usuario(String nome, int idade, String cpf, String email, String telefone, String senha, Boolean ativo, Tipo_Usuario tipo) {
+        this.nome = nome;
+        this.idade = idade;
+        this.cpf = cpf;
+        this.email = email;
+        this.telefone = telefone;
+        this.senha = senha;
+        this.ativo = ativo;
+        this.tipo = tipo;
+    }
+
+    public Usuario() {
+    }
 
     public long getId() {
         return id;
@@ -82,10 +97,10 @@ public class Cliente {
     public void setAtivo(Boolean ativo) {
         this.ativo = ativo;
     }
-    public TipoUsuario getTipo() {
+    public Tipo_Usuario getTipo() {
         return tipo;
     }
-    public void setTipo(TipoUsuario tipo) {
+    public void setTipo(Tipo_Usuario tipo) {
         this.tipo = tipo;
     }
     
