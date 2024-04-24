@@ -30,12 +30,19 @@ public class UsuarioController {
 
     }
 
-    @GetMapping("/teste")
-    public List<Usuario> getIssoAi(){
+    public record userLogin(
 
-        return usuarioService.getIssoAi();
+        String email,
+        String password
 
+    ){};
+
+    @PostMapping("/login")
+    public void autentication(@RequestBody userLogin dados) {
+        
+        
     }
+    
 
     public record UsuarioModel(
         String nome,
@@ -49,7 +56,7 @@ public class UsuarioController {
     ){};
 
 
-    @PostMapping
+    @PostMapping("/cadastrar")
     public void addUsuario(@RequestBody UsuarioModel request){
 
             Usuario usuario = new Usuario();
