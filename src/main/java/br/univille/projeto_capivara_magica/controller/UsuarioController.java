@@ -34,18 +34,6 @@ public class UsuarioController {
 
     }
 
-<<<<<<< HEAD
-    public record userLogin(
-
-        String email,
-        String password
-
-    ){};
-
-    @PostMapping("/login")
-    public void autentication(@RequestBody userLogin dados) {
-        
-=======
     @PostMapping("/login")
     public ResponseEntity<String> authenticate(@RequestBody Map<String, String> credentials){
 
@@ -60,7 +48,6 @@ public class UsuarioController {
         }catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
         }
->>>>>>> main
         
     }
     
