@@ -50,6 +50,7 @@ public class UsuarioController {
         }
         
     }
+    
 
     public record UsuarioModel(
         String nome,
@@ -63,7 +64,7 @@ public class UsuarioController {
     ){};
 
 
-    @PostMapping
+    @PostMapping("/cadastrar")
     public void addUsuario(@RequestBody UsuarioModel request){
 
             Usuario usuario = new Usuario();
