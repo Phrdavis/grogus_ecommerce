@@ -14,7 +14,7 @@ public class UsuarioService {
     
     private UsuarioRepository usuarioRepository;
     
-    @Autowired
+    @Autowired 
     private BCryptPasswordEncoder passwordEncoder;
 
     public UsuarioService(UsuarioRepository usuarioRepository){
