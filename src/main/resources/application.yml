@@ -31,3 +31,7 @@ spring:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: update
+
+jwt:
+  secret: sai_daqui_fi
+  expirationMs: 86400000
