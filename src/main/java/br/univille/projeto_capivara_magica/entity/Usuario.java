@@ -20,7 +20,11 @@ public class Usuario {
 
     private String nome;
     private int idade;
+    
+    @Column(nullable = false, unique = true)
     private String cpf;
+
+    @Column(nullable = false, unique = true)
     private String email;
     private String telefone;
     private String senha;
