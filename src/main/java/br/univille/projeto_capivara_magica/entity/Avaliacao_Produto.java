@@ -1,11 +1,14 @@
 package br.univille.projeto_capivara_magica.entity;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.PrePersist;
 
 @Entity
 public class Avaliacao_Produto {
@@ -19,6 +22,7 @@ public class Avaliacao_Produto {
     @JoinColumn(name="produto_id")
     private Produto produto;
     private float nota;
+    private LocalDateTime registro;
 
     
     public Avaliacao_Produto(String comentario, Produto produto, float nota) {
@@ -55,6 +59,17 @@ public class Avaliacao_Produto {
         this.nota = nota;
     }
 
+    @PrePersist
+    public void prePersist() {
+        this.registro = LocalDateTime.now();
+    }
 
+    public LocalDateTime getRegistro() {
+        return registro;
+    }
+
+    public void setRegistro(LocalDateTime registro) {
+        this.registro = registro;
+    }
     
 }

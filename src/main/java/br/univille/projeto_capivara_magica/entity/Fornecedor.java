@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
 
 @Entity
 public class Fornecedor {
@@ -67,6 +68,12 @@ public class Fornecedor {
     public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
+    
+    @PrePersist
+    public void prePersist() {
+        this.registro = LocalDateTime.now();
+    }
+    
     public LocalDateTime getRegistro() {
         return registro;
     }
