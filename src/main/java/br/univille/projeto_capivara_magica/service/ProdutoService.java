@@ -28,6 +28,10 @@ public class ProdutoService {
 
     }
 
-    
+    public List<Produto> getProdutosNotas() {
+        
+        return produtoRepository.getAllProdutosNota();
+
+    }
     
 }

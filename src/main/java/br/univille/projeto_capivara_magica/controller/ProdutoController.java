@@ -30,6 +30,13 @@ public class ProdutoController {
 
     }
 
+    @GetMapping("/notas")
+    public List<Produto> getProdutosNotas(){
+
+        return produtoService.getProdutosNotas();
+
+    }
+
     public record ProdutoModel(
         String nome,
         boolean disponibilidade,
