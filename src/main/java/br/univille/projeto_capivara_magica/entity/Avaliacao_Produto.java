@@ -21,12 +21,18 @@ public class Avaliacao_Produto {
     @ManyToOne(targetEntity = Produto.class)
     @JoinColumn(name="produto_id")
     private Produto produto;
+
+    @ManyToOne(targetEntity = Usuario.class)
+    @JoinColumn(name="usuario_id")
+    private Usuario usuario;
+    
     private float nota;
     private LocalDateTime registro;
 
     
-    public Avaliacao_Produto(String comentario, Produto produto, float nota) {
+    public Avaliacao_Produto(String comentario, Usuario usuario, Produto produto, float nota) {
         this.comentario = comentario;
+        this.usuario = usuario;
         this.produto = produto;
         this.nota = nota;
     }
@@ -70,6 +76,14 @@ public class Avaliacao_Produto {
 
     public void setRegistro(LocalDateTime registro) {
         this.registro = registro;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
     
 }

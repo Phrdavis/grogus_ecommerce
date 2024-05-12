@@ -20,8 +20,9 @@ public class Produto {
     private boolean disponibilidade;
     private String descricao;
     private int garantia;
+    private String imagem;
     private String modelo;
-    private long preco;
+    private float preco;
 
     @ManyToOne(targetEntity = Fornecedor.class)
     @JoinColumn(name="fornecedor_id")
@@ -68,7 +69,7 @@ public class Produto {
         this.nome = nome;
     }
 
-    public boolean isDisponibilidade() {
+    public boolean getDisponibilidade() {
         return disponibilidade;
     }
 
@@ -100,11 +101,11 @@ public class Produto {
         this.modelo = modelo;
     }
 
-    public long getPreco() {
+    public float getPreco() {
         return preco;
     }
 
-    public void setPreco(long preco) {
+    public void setPreco(float preco) {
         this.preco = preco;
     }
 
@@ -143,6 +144,14 @@ public class Produto {
 
     public void setRegistro(LocalDateTime registro) {
         this.registro = registro;
+    }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
     }
 
     

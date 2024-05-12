@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.univille.projeto_capivara_magica.entity.Avaliacao_Produto;
 import br.univille.projeto_capivara_magica.entity.Produto;
+import br.univille.projeto_capivara_magica.entity.Usuario;
 import br.univille.projeto_capivara_magica.service.AvaliacaoProdutoService;
 
 @RestController
@@ -33,6 +34,7 @@ public class AvaliacaoProdutoController {
 
         String comentario,
         Produto produto,
+        Usuario usuario,
         float nota
 
     ){}
@@ -43,6 +45,7 @@ public class AvaliacaoProdutoController {
         Avaliacao_Produto avaliacao = new Avaliacao_Produto();
         avaliacao.setComentario(newAvaliacao.comentario);
         avaliacao.setProduto(newAvaliacao.produto);
+        avaliacao.setUsuario(newAvaliacao.usuario);
         avaliacao.setNota(newAvaliacao.nota);
 
         avaliacaoProdutoService.addAvaliacao(avaliacao);

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -43,14 +44,15 @@ public class ProdutoController {
         String descricao,
         int garantia,
         String modelo,
-        long preco,
+        String imagem,
+        float preco,
         Fornecedor fornecedor,
         Tipo_Produto tipo_produto,
         Categoria_Produto categoria_produto
     ){};
 
     @PostMapping
-    public void addProduto(ProdutoModel newProduto){
+    public void addProduto(@RequestBody ProdutoModel newProduto){
 
         Produto produto = new Produto();
         produto.setNome(newProduto.nome);
@@ -58,6 +60,7 @@ public class ProdutoController {
         produto.setDescricao(newProduto.descricao);
         produto.setGarantia(newProduto.garantia);
         produto.setModelo(newProduto.modelo);
+        produto.setImagem(newProduto.imagem);
         produto.setPreco(newProduto.preco);
         produto.setFornecedor(newProduto.fornecedor);
         produto.setTipo_produto(newProduto.tipo_produto);
