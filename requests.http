@@ -1,6 +1,86 @@
-POST http://localhost:6060/api/v1/tipos_produto HTTP/1.1
+POST http://localhost:6060/api/v1/produtos HTTP/1.1
 content-type: application/json
 
-{
-    "nome":     "Mousepad"
-}
+// Fornecedor
+# {
+
+#     "nome" : "Pichau",
+#     "cidade" : "Joinville",
+#     "filial" : "",
+#     "uf" : "SC",
+#     "cnpj" : "000.000.000/0001-00"
+
+# }
+
+
+
+// Categoria Produto
+# {
+
+#     "nome" : "Games"
+
+# }
+
+
+
+// Tipo Produto
+# {
+
+#     "nome" : "Headset"
+
+# }
+
+
+
+// Produto
+# {
+
+#     "nome" : "Headset Gamer Corsair Virtuoso RGB Wireless, Som Surround 7.1, Drivers 50mm, Perola, CA-9011224-NA",
+#     "disponibilidade" : true,
+#     "descricao" : "Headset Gamer Corsair Virtuoso RGB Wireless, Som Surround 7.1, Drivers 50mm, Perola, CA-9011224-NA",
+#     "garantia" : 2,
+#     "imagem": "https://media.pichau.com.br/media/catalog/product/cache/2f958555330323e505eba7ce930bdf27/c/a/ca-9011224-na7_1.jpg",
+#     "modelo" : "123445",
+#     "preco" : 1118.69,
+#     "fornecedor" : {"id" : 1},
+#     "tipo_produto" : {"id" : 1},
+#     "categoria_produto" : {"id" : 1}
+
+# }
+
+
+
+// Tipo Usuario
+# {
+
+#     "nome" : "Cliente"
+
+# }
+
+
+
+// Usuario
+# {
+
+#     "nome" : "Alexandre Butzke",
+#     "idade": 122,
+#     "cpf": "09876789987",
+#     "email": "alenxandria123@gmail.com",
+#     "telefone": "69669696969",
+#     "senha": "UnicornioVoador321@",
+#     "ativo": true, 
+#     "tipo" : {"id": 1}
+
+# }
+
+
+
+// Avaliações
+# {
+
+#     "comentario" : "Produto bom pra kralho",
+#     "produto": {"id": 1},
+#     "usuario": {"id": 7},
+#     "nota": "10.0"
+
+# }

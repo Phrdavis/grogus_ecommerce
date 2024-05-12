@@ -14,7 +14,7 @@ public interface ProdutoRepository
 
     @Query("SELECT p, AVG(ap.nota) AS NOTA " +
     "FROM Produto p " +
-    "INNER JOIN Avaliacao_Produto ap ON p.id = ap.produto.id " +
+    "LEFT JOIN Avaliacao_Produto ap ON p.id = ap.produto.id " +
     "GROUP BY p.id")
     List<Produto> getAllProdutosNota();
     
