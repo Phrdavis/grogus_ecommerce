@@ -4,10 +4,12 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,6 +21,7 @@ import br.univille.projeto_capivara_magica.service.UsuarioService;
 
 @RestController
 @RequestMapping("api/v1/usuarios")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class UsuarioController {
     
     private UsuarioService usuarioService;
@@ -27,13 +30,14 @@ public class UsuarioController {
         this.usuarioService = usuarioService;
     }
 
+    @CrossOrigin
     @GetMapping
     public List<Usuario> getUsuarios(){
 
         return usuarioService.getUsuarios();
 
     }
-
+    @CrossOrigin
     @PostMapping("/login")
     public ResponseEntity<String> authenticate(@RequestBody Map<String, String> credentials){
 
@@ -64,6 +68,7 @@ public class UsuarioController {
     ){};
 
 
+    @CrossOrigin
     @PostMapping("/cadastrar")
     public void addUsuario(@RequestBody UsuarioModel request){
 
