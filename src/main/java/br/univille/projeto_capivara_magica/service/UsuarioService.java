@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.univille.projeto_capivara_magica.component.JwtUtils;
-import br.univille.projeto_capivara_magica.component.PasswordEncrypter;
 import br.univille.projeto_capivara_magica.entity.Usuario;
 import br.univille.projeto_capivara_magica.repository.UsuarioRepository;
 
@@ -14,7 +13,6 @@ import br.univille.projeto_capivara_magica.repository.UsuarioRepository;
 public class UsuarioService {
     
     private UsuarioRepository usuarioRepository;
-    private PasswordEncrypter passwordEncrypter = new PasswordEncrypter();
     
     @Autowired
     private JwtUtils jwtUtils;
@@ -31,10 +29,6 @@ public class UsuarioService {
 
     public void addUsuario(Usuario usuario){
 
-        String encoded_password = passwordEncrypter.encodePassword(usuario.getSenha());
-
-        usuario.setSenha(encoded_password);
-
         usuarioRepository.save(usuario);
 
     }
@@ -42,9 +36,8 @@ public class UsuarioService {
     public String authenticate(String email, String password){
 
         Usuario usuario = usuarioRepository.findByEmail(email);
-        String encoded_password = passwordEncrypter.encodePassword(password);
-
-        if(usuario != null && passwordEncrypter.matchPassword(password, encoded_password)){
+        
+        if(usuario != null && usuario.getSenha().equals(password)){
             return jwtUtils.generateJwtToken(email); 
         }else{
             throw new RuntimeException("E-mail e senha informados não conferem");
