@@ -44,7 +44,8 @@ public class UsuarioService {
         Usuario usuario = usuarioRepository.findByEmail(email);
         String encoded_password = passwordEncrypter.encodePassword(password);
 
-        if(usuario != null && passwordEncrypter.matchPassword(password, encoded_password)){
+        // if(usuario != null && passwordEncrypter.matchPassword(password, encoded_password)){
+        if(usuario != null && usuario.getSenha().equals(password)){
             return jwtUtils.generateJwtToken(email); 
         }else{
             throw new RuntimeException("E-mail e senha informados não conferem");
