@@ -1,6 +1,6 @@
 # Grogu's E-commerce Back-End
 
-An E-commerce project developed for the Software Factory classes at Univille University.
+An E-commerce API REST Project for Software Factory classes at Univille University
 
 ## Technologies 
 
@@ -48,3 +48,4 @@ This project is licensed under the [MIT License](LICENSE).
 - Course: Software Engineering
 - University: [Univille](https://www.univille.edu.br/)
 - Collaborators: [Alexandre Butzke](https://github.com/AlexandreButzkeDev), [Davi Pinheiro de Souza](https://github.com/Phrdavis)
+
