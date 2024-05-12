@@ -31,7 +31,7 @@ Once the application is up and running, you can access the API endpoints using t
 - Create a new customer: `POST /api/v1/usuarios/cadastrar`
 - Autenticate login: `POST /api/usuarios/login`
 
-For detailed API documentation, refer to the [API Documentation](/api-docs) section.
+<!-- For detailed API documentation, refer to the [API Documentation](/api-docs) section. -->
 
 ## Contributing
 
