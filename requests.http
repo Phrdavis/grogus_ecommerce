@@ -4,10 +4,3 @@ content-type: application/json
 {
     "nome":     "Mousepad"
 }
-
-POST http://localhost:6060/api/v1/tipos_produto HTTP/1.1
-content-type: application/json
-
-{
-    "nome":     "Mousepad"
-}
