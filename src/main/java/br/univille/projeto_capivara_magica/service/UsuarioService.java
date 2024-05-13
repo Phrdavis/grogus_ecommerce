@@ -36,11 +36,30 @@ public class UsuarioService {
     public String authenticate(String email, String password){
 
         Usuario usuario = usuarioRepository.findByEmail(email);
+        long id = usuario.getId();
         
         if(usuario != null && usuario.getSenha().equals(password)){
-            return jwtUtils.generateJwtToken(email); 
+            return jwtUtils.generateJwtToken(email, id); 
         }else{
             throw new RuntimeException("E-mail e senha informados não conferem");
+        }
+
+    }
+
+    public String updateUsuario(Usuario usuario){
+
+        long id = usuario.getId();
+        Usuario usuarioDB = usuarioRepository.findById(id);
+
+        if(usuarioDB != null){
+            usuarioDB.setNome(usuario.getNome());
+            usuarioDB.setEmail(usuario.getEmail());
+            usuarioDB.setSenha(usuario.getSenha());
+            usuarioDB.setTipo(usuario.getTipo());
+            usuarioRepository.save(usuarioDB);
+            return "Usuário atualizado com sucesso";
+        }else{
+            return "Usuário não encontrado";
         }
 
     }

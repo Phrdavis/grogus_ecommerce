@@ -21,10 +21,11 @@ public class JwtUtils {
     @Value("${jwt.expirationMs}")
     private int jwtExpirationMs;
 
-    public String generateJwtToken(String email) {
+    public String generateJwtToken(String email, long id) {
         SecretKey key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
 
         return Jwts.builder()
+                .claim("id", id)
                 .setSubject(email)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(new Date().getTime() + jwtExpirationMs))

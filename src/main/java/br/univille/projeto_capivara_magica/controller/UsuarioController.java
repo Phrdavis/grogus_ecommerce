@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import br.univille.projeto_capivara_magica.entity.Usuario;
@@ -56,6 +57,7 @@ public class UsuarioController {
     
 
     public record UsuarioModel(
+        long id, 
         String nome,
         int idade,
         String cpf,
@@ -85,4 +87,32 @@ public class UsuarioController {
             usuarioService.addUsuario(usuario);
 
     }
+
+    @CrossOrigin
+    @PutMapping("/atualizar")
+    public ResponseEntity<String> updateUsuario(@RequestBody UsuarioModel request){
+
+        Usuario usuario = new Usuario();
+        usuario.setId(request.id);
+        usuario.setNome(request.nome);
+        usuario.setCpf(request.cpf);
+        usuario.setEmail(request.email);
+        usuario.setTelefone(request.telefone);
+        usuario.setSenha(request.senha);
+        usuario.setIdade(request.idade);
+        usuario.setAtivo(request.ativo); 
+        usuario.setTipo(request.tipo);
+
+        
+        try{
+
+            String response = usuarioService.updateUsuario(usuario);
+            return ResponseEntity.ok(response);
+
+        }catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.I_AM_A_TEAPOT).body(e.getMessage());
+        }
+
+    }
+
 }
