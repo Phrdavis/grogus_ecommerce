@@ -4,8 +4,8 @@ An E-commerce API REST Project for Software Factory classes at Univille Universi
 
 ## Technologies 
 
-- Java
-- Spring Boot
+[![My Skills](https://skillicons.dev/icons?i=java,spring)](https://skillicons.dev)
+
 - JPA
 - JDBC
 - H2 Database
@@ -30,8 +30,6 @@ Once the application is up and running, you can access the API endpoints using t
 - Retrieve all products: `GET /api/v1/produtos`
 - Create a new customer: `POST /api/v1/usuarios/cadastrar`
 - Autenticate login: `POST /api/usuarios/login`
-
-<!-- For detailed API documentation, refer to the [API Documentation](/api-docs) section. -->
 
 ## Contributing
 
