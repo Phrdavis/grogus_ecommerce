@@ -1,5 +1,6 @@
 package br.univille.projeto_capivara_magica.entity;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
@@ -19,7 +20,7 @@ public class Usuario {
     private long id;
 
     private String nome;
-    private int idade;
+    private LocalDate data_nascimento;
     
     @Column(nullable = false, unique = true)
     private String cpf;
@@ -38,9 +39,9 @@ public class Usuario {
 
     private LocalDateTime registro;
 
-    public Usuario(String nome, int idade, String cpf, String email, String telefone, String senha, Boolean ativo, Tipo_Usuario tipo) {
+    public Usuario(String nome, LocalDate data_nascimento, String cpf, String email, String telefone, String senha, Boolean ativo, Tipo_Usuario tipo) {
         this.nome = nome;
-        this.idade = idade;
+        this.data_nascimento = data_nascimento;
         this.cpf = cpf;
         this.email = email;
         this.telefone = telefone;
@@ -65,11 +66,11 @@ public class Usuario {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public int getIdade() {
-        return idade;
+    public LocalDate getNascimento() {
+        return data_nascimento;
     }
-    public void setIdade(int idade) {
-        this.idade = idade;
+    public void setNascimento(LocalDate data_nascimento) {
+        this.data_nascimento = data_nascimento;
     }
     public String getCpf() {
         return cpf;

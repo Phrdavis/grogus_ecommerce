@@ -1,5 +1,6 @@
 package br.univille.projeto_capivara_magica.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
@@ -10,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,6 +39,15 @@ public class UsuarioController {
         return usuarioService.getUsuarios();
 
     }
+
+    @CrossOrigin
+    @GetMapping("/{id}")
+    public Usuario getUsuarioId(@PathVariable("id") long id){
+
+        return usuarioService.getUsuariosId(id);
+
+    }
+
     @CrossOrigin
     @PostMapping("/login")
     public ResponseEntity<String> authenticate(@RequestBody Map<String, String> credentials){
@@ -59,7 +70,7 @@ public class UsuarioController {
     public record UsuarioModel(
         long id, 
         String nome,
-        int idade,
+        LocalDate dt_nascimento,
         String cpf,
         String email,
         String telefone,
@@ -79,7 +90,7 @@ public class UsuarioController {
             usuario.setEmail(request.email);
             usuario.setTelefone(request.telefone);
             usuario.setSenha(request.senha);
-            usuario.setIdade(request.idade);
+            usuario.setNascimento(request.dt_nascimento);
             usuario.setAtivo(request.ativo); 
             usuario.setTipo(request.tipo);
 
@@ -99,7 +110,7 @@ public class UsuarioController {
         usuario.setEmail(request.email);
         usuario.setTelefone(request.telefone);
         usuario.setSenha(request.senha);
-        usuario.setIdade(request.idade);
+        usuario.setNascimento(request.dt_nascimento);
         usuario.setAtivo(request.ativo); 
         usuario.setTipo(request.tipo);
 

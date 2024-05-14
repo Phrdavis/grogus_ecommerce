@@ -27,11 +27,5 @@ public class ProdutoService {
         produtoRepository.save(produto);
 
     }
-
-    public List<Produto> getProdutosNotas() {
-        
-        return produtoRepository.getAllProdutosNota();
-
-    }
     
 }
