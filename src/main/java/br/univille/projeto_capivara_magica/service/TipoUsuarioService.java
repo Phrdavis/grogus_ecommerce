@@ -22,9 +22,27 @@ public class TipoUsuarioService {
 
     }
 
-    public void addTipoUsuario(Tipo_Usuario tipoUsuario){
+    public Tipo_Usuario getTiposUsuarioNome(String nome){
 
-        tipoUsuarioRepository.save(tipoUsuario);
+        return tipoUsuarioRepository.findByNome(nome);
+
+    }
+
+    public String addTipoUsuario(Tipo_Usuario tipoUsuario){
+
+        String tipo_nome = tipoUsuario.getNome();
+
+        Tipo_Usuario tipo = tipoUsuarioRepository.findByNome(tipo_nome);
+
+        if(tipo == null){
+
+            tipoUsuarioRepository.save(tipoUsuario);
+            return "Tipo de Usuario Criado com sucesso!";
+
+        }else{
+            
+            throw new RuntimeException("Tipo de Usuario já cadastrado");
+        }
 
     }
 
