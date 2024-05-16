@@ -9,4 +9,5 @@ import br.univille.projeto_capivara_magica.entity.Tipo_Produto;
 public interface TipoProdutoRepository 
                 extends JpaRepository<Tipo_Produto, Integer>{
     
+    Tipo_Produto findByNome(String nome);
 }

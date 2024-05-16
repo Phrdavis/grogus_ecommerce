@@ -14,5 +14,7 @@ public interface UsuarioRepository
     Usuario findByEmail(String email);
 
     Usuario findById(long id);
+
+    
     
 }
