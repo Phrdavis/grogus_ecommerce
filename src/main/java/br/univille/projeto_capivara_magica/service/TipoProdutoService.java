@@ -22,9 +22,21 @@ public class TipoProdutoService {
 
     }
 
-    public void addTipoProduto(Tipo_Produto tipoProduto){
+    public String addTipoProduto(Tipo_Produto tipoProduto){
 
-        tipoProdutoRepository.save(tipoProduto);
+        String tipo_nome = tipoProduto.getNome();
+
+        Tipo_Produto tipo = tipoProdutoRepository.findByNome(tipo_nome);
+
+        if(tipo == null){
+
+            tipoProdutoRepository.save(tipoProduto);
+            return "Tipo de Produto Criado com sucesso!";
+
+        }else{
+            
+            throw new RuntimeException("Tipo de Produto já cadastrado");
+        }
 
     }
     

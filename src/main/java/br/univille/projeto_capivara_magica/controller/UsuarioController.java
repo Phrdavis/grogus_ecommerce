@@ -1,6 +1,5 @@
 package br.univille.projeto_capivara_magica.controller;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import br.univille.projeto_capivara_magica.entity.Usuario;
-import br.univille.projeto_capivara_magica.entity.Tipo_Usuario;
 import br.univille.projeto_capivara_magica.service.UsuarioService;
 
 
@@ -65,59 +63,30 @@ public class UsuarioController {
         }
         
     }
-    
-
-    public record UsuarioModel(
-        long id, 
-        String nome,
-        LocalDate dt_nascimento,
-        String cpf,
-        String email,
-        String telefone,
-        String senha,
-        boolean ativo,
-        Tipo_Usuario tipo
-    ){};
 
 
     @CrossOrigin
     @PostMapping("/cadastrar")
-    public void addUsuario(@RequestBody UsuarioModel request){
-
-            Usuario usuario = new Usuario();
-            usuario.setNome(request.nome);
-            usuario.setCpf(request.cpf);
-            usuario.setEmail(request.email);
-            usuario.setTelefone(request.telefone);
-            usuario.setSenha(request.senha);
-            usuario.setNascimento(request.dt_nascimento);
-            usuario.setAtivo(request.ativo); 
-            usuario.setTipo(request.tipo);
-
-            
-            usuarioService.addUsuario(usuario);
+    public ResponseEntity<String> addUsuario(@RequestBody Usuario request){
+        
+            try{
+    
+                String response = usuarioService.addUsuario(request);;
+                return ResponseEntity.ok(response);
+    
+            }catch (RuntimeException e) {
+                return ResponseEntity.status(HttpStatus.I_AM_A_TEAPOT).body(e.getMessage());
+            }
 
     }
 
     @CrossOrigin
     @PutMapping("/atualizar")
-    public ResponseEntity<String> updateUsuario(@RequestBody UsuarioModel request){
-
-        Usuario usuario = new Usuario();
-        usuario.setId(request.id);
-        usuario.setNome(request.nome);
-        usuario.setCpf(request.cpf);
-        usuario.setEmail(request.email);
-        usuario.setTelefone(request.telefone);
-        usuario.setSenha(request.senha);
-        usuario.setNascimento(request.dt_nascimento);
-        usuario.setAtivo(request.ativo); 
-        usuario.setTipo(request.tipo);
-
+    public ResponseEntity<String> updateUsuario(@RequestBody Usuario request){
         
         try{
 
-            String response = usuarioService.updateUsuario(usuario);
+            String response = usuarioService.updateUsuario(request);
             return ResponseEntity.ok(response);
 
         }catch (RuntimeException e) {

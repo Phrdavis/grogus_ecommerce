@@ -20,7 +20,9 @@ public class Usuario {
     private long id;
 
     private String nome;
-    private LocalDate data_nascimento;
+    
+    @Column(nullable = false)
+    private LocalDate dataNascimento;
     
     @Column(nullable = false, unique = true)
     private String cpf;
@@ -39,9 +41,9 @@ public class Usuario {
 
     private LocalDateTime registro;
 
-    public Usuario(String nome, LocalDate data_nascimento, String cpf, String email, String telefone, String senha, Boolean ativo, Tipo_Usuario tipo) {
+    public Usuario(String nome, LocalDate dataNascimento, String cpf, String email, String telefone, String senha, Boolean ativo, Tipo_Usuario tipo) {
         this.nome = nome;
-        this.data_nascimento = data_nascimento;
+        this.dataNascimento = dataNascimento;
         this.cpf = cpf;
         this.email = email;
         this.telefone = telefone;
@@ -66,11 +68,14 @@ public class Usuario {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public LocalDate getNascimento() {
-        return data_nascimento;
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
     }
-    public void setNascimento(LocalDate data_nascimento) {
-        this.data_nascimento = data_nascimento;
+    public void setDataNascimento(LocalDate dataNascimento) {
+
+        LocalDate data = LocalDate.parse(dataNascimento.toString());
+
+        this.dataNascimento = data;
     }
     public String getCpf() {
         return cpf;
