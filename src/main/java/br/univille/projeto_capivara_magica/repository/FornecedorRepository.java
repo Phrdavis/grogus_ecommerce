@@ -9,4 +9,5 @@ import br.univille.projeto_capivara_magica.entity.Fornecedor;
 public interface FornecedorRepository 
                 extends JpaRepository<Fornecedor, Long>{
     
+    Fornecedor findByNome(String nome);
 }

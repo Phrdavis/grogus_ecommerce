@@ -9,4 +9,5 @@ import br.univille.projeto_capivara_magica.entity.Categoria_Produto;
 public interface CategoriaProdutoRepository 
                 extends JpaRepository<Categoria_Produto, Long>{
     
+    Categoria_Produto findByNome(String nome);
 }

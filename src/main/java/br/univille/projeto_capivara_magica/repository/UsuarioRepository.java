@@ -11,6 +11,8 @@ import br.univille.projeto_capivara_magica.entity.Usuario;
 public interface UsuarioRepository 
                 extends JpaRepository<Usuario, Integer>{
 
+    Usuario findByNome(String nome);
+
     Usuario findByEmail(String email);
 
     Usuario findById(long id);
