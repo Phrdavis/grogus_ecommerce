@@ -11,21 +11,27 @@ import br.univille.projeto_capivara_magica.repository.ProdutoRepository;
 public class ProdutoService {
 
     private ProdutoRepository produtoRepository;
-    
-    public ProdutoService(ProdutoRepository produtoRepository){
+
+    public ProdutoService(ProdutoRepository produtoRepository) {
         this.produtoRepository = produtoRepository;
     }
 
-    public List<Produto> getProdutos(){
+    public List<Produto> getProdutos() {
 
         return produtoRepository.findAll();
 
     }
 
-    public void addProduto(Produto produto){
+    public Produto getProdutoByName(String nome) {
+
+        return produtoRepository.findByNome(nome);
+
+    }
+
+    public void addProduto(Produto produto) {
 
         produtoRepository.save(produto);
 
     }
-    
+
 }
