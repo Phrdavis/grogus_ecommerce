@@ -1,5 +1,11 @@
-POST http://localhost:6060/api/v1/produtos HTTP/1.1
+POST http://localhost:6060/api/v1/carrinhos/usuario HTTP/1.1
 content-type: application/json
+
+{
+
+    "usuario": {"id": 1}
+
+}
 
 // Fornecedor
 # {
